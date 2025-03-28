@@ -1,0 +1,6 @@
+[lint]
+select = ["E", "F", "I", "B", "ANN"]
+
+[lint.per-file-ignores]
+"ui_*.py" = ["ANN"]
+"rc_*.py" = ["ANN"]
