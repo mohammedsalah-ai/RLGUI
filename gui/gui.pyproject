@@ -1,0 +1,7 @@
+{
+  "files": [
+    "main.py", 
+    "elements/main_window/main_window.ui",
+    "elements/env_dialog/env_dialog.ui"
+  ]
+}
