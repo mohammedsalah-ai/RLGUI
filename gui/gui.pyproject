@@ -2,6 +2,8 @@
   "files": [
     "main.py", 
     "elements/main_window/main_window.ui",
-    "elements/env_dialog/env_dialog.ui"
+    "elements/env_dialog/env_dialog.ui",
+    "elements/md_widget/md_widget.ui",
+    "elements/md_widget/md_widget.qrc"
   ]
 }

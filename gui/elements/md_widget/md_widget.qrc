@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="md_widget">
+        <file>md_widget_resources/index.html</file>
+        <file>md_widget_resources/static/markdown.css</file>
+        <file>md_widget_resources/static/marked.js</file>
+    </qresource>
+</RCC>
