@@ -1,5 +1,4 @@
 from PySide6.QtCore import QUrl
-from PySide6.QtGui import QDesktopServices
 from PySide6.QtWebEngineCore import QWebEnginePage
 from PySide6.QtWidgets import QWidget
 
@@ -10,12 +9,11 @@ class QRCPage(QWebEnginePage):
 
     def acceptNavigationRequest(
         self,
-        url: QUrl,
+        url: QUrl | str,
         type: QWebEnginePage.NavigationType,
         isMainFrame: bool,
     ) -> bool:
-        if url.scheme() == "qrc":
+        if isinstance(url, QUrl) and url.scheme() == "qrc":
             return True
 
-        QDesktopServices.openUrl(url)
         return False
