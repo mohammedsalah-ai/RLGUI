@@ -19,8 +19,8 @@ from PySide6.QtWidgets import (
     QDialogButtonBox,
     QGridLayout,
     QHBoxLayout,
+    QListView,
     QScrollArea,
-    QTreeView,
     QWidget,
 )
 
@@ -40,10 +40,10 @@ class Ui_EnvDialog(object):
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setSpacing(24)
         self.horizontalLayout.setObjectName("horizontalLayout")
-        self.envSelectionTreeView = QTreeView(EnvDialog)
-        self.envSelectionTreeView.setObjectName("envSelectionTreeView")
+        self.envSelectionListView = QListView(EnvDialog)
+        self.envSelectionListView.setObjectName("envSelectionListView")
 
-        self.horizontalLayout.addWidget(self.envSelectionTreeView)
+        self.horizontalLayout.addWidget(self.envSelectionListView)
 
         self.envDescriptionScrollArea = QScrollArea(EnvDialog)
         self.envDescriptionScrollArea.setObjectName("envDescriptionScrollArea")
