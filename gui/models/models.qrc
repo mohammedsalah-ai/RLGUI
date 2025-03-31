@@ -1,5 +1,9 @@
 <RCC>
     <qresource prefix="models">
       <file>models_resources/envs.json</file>
+      <file>models_resources/env_icons/babo.png</file>
+      <file>models_resources/env_icons/bado.png</file>
+      <file>models_resources/env_icons/dabo.png</file>
+      <file>models_resources/env_icons/dado.png</file>
     </qresource>
 </RCC>

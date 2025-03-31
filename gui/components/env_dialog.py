@@ -18,9 +18,13 @@ class EnvDialog(QDialog, Ui_EnvDialog):
         self.envModel = EnvListModel()
         self.envSelectionListView.setModel(self.envModel)
 
-        self.envSelectionListView.doubleClicked.connect(self.on_selector_double_click)
+        self.envSelectionListView.clicked.connect(self.on_selector_click)
 
-    def on_selector_double_click(self, index: QModelIndex) -> None:
+    def on_selector_click(self, index: QModelIndex) -> None:
         env = self.envModel.envs[index.row()]
+
         self.selectedEnv = env
-        self.md_widget.setMD(env["envDescription"])
+        self.md_widget.setMD(self.create_env_description(env))
+
+    def create_env_description(self, env: dict) -> str:
+        return "# " + env["name"]

@@ -1,18 +1,160 @@
 [
   {
-    "envName": "Frozen Lake",
-    "envDescription": "# FrozenLake"
+    "name": "FrozenLake-v1",
+    "display_name": "Frozen Lake",
+    "category": "Toy Text",
+    "description": "The game starts with the player at location [0,0] of the frozen lake grid world with the goal located at far extent of the world e.g. [3,3] for the 4x4 environment.\nHoles in the ice are distributed in set locations when using a pre-determined map or in random locations when a random map is generated.\nThe player makes moves until they reach the goal or fall in a hole.\nThe lake is slippery (unless disabled) so the player may move perpendicular to the intended direction sometimes (see is_slippery).\nRandomly generated worlds will always have a path to the goal.",
+    "action_space": {
+      "description": "The agent's movement",
+      "type": "Discrete",
+      "n": 4,
+      "metadata": {
+        "0": "Move Left",
+        "1": "Move Down",
+        "2": "Move Right",
+        "3": "Move Left"
+      }
+    },
+    "observation_space": {
+      "description": "Discrete states representing the agent's position on the grid (e.g., 16 states for 4x4 map)",
+      "type": "Discrete",
+      "n": [16, 64]
+    },
+    "rewards": {
+      "reach_goal": 1.0,
+      "fall_in_hole": 0.0,
+      "step_penalty": 0.0
+    },
+    "episode": {
+      "start": "State 0 (top-left corner)",
+      "end": "Episode ends when agent reaches goal, falls into a hole, or exceeds max steps."
+    },
+    "args": {
+      "is_slippery": {
+        "type": "bool",
+        "default": true,
+        "description": "If true, actions have stochastic outcomes (33% chance of sliding sideways)."
+      },
+      "map_name": {
+        "type": "str",
+        "possible_values": ["4x4", "8x8"],
+        "default": "4x4",
+        "description": "Grid size."
+      }
+    }
   },
   {
-    "envName": "Cliff Walking",
-    "envDescription": "# CliffWalking"
+    "name": "CliffWalking-v0",
+    "display_name": "Cliff Walking",
+    "category": "Toy Text",
+    "description": "The game starts with the player at location [3,0] of the grid world with the goal located at [3,11].\nThe player must navigate from the start to the goal while avoiding falling off the cliff which runs along [3,1..10].\nFalling off the cliff results in a penalty and sends the player back to the start.\nThe player makes moves until they reach the goal or exceed the step limit.",
+    "action_space": {
+      "description": "The agent's movement",
+      "type": "Discrete",
+      "n": 4,
+      "metadata": {
+        "0": "Move Up",
+        "1": "Move Right",
+        "2": "Move Down",
+        "3": "Move Left"
+      }
+    },
+    "observation_space": {
+      "description": "Discrete states representing the agent's position on the grid (48 possible positions)",
+      "type": "Discrete",
+      "n": 48
+    },
+    "rewards": {
+      "reach_goal": 0.0,
+      "fall_off_cliff": -100.0,
+      "step_penalty": -1.0
+    },
+    "episode": {
+      "start": "State 36 (bottom-left corner)",
+      "end": "Episode ends when agent reaches goal (state 47) or exceeds max steps (100)."
+    },
+    "args": {}
   },
   {
-    "envName": "Taxi",
-    "envDescription": "# Taxi"
+    "name": "Taxi-v3",
+    "display_name": "Taxi",
+    "category": "Toy Text",
+    "description": "The Taxi problem involves navigating a grid world to pick up a passenger at one location and drop them off at another.\nThe agent (taxi) must learn to move efficiently while avoiding illegal actions (e.g., moving through walls).\nThe environment includes walls that restrict movement, and the taxi must pick up and drop off passengers in the correct order.",
+    "action_space": {
+      "description": "The agent's possible actions",
+      "type": "Discrete",
+      "n": 6,
+      "metadata": {
+        "0": "Move South (Down)",
+        "1": "Move North (Up)",
+        "2": "Move East (Right)",
+        "3": "Move West (Left)",
+        "4": "Pickup Passenger",
+        "5": "Dropoff Passenger"
+      }
+    },
+    "observation_space": {
+      "description": "Discrete state representing the taxi's position, passenger location, and destination.",
+      "type": "Discrete",
+      "n": 500
+    },
+    "rewards": {
+      "successful_dropoff": 20,
+      "illegal_pickup/dropoff": -10,
+      "step_penalty": -1,
+      "incorrect_pickup": -10
+    },
+    "episode": {
+      "start": "Random initial state (taxi position, passenger location, destination)",
+      "end": "Episode ends when the passenger is successfully dropped at the destination."
+    },
+    "args": {}
   },
   {
-    "envName": "BlackJack",
-    "envDescription": "# BlackJack"
+    "name": "CartPole-v1",
+    "display_name": "Cart Pole",
+    "category": "Classic Control",
+    "description": "A pole is attached to a cart moving along a frictionless track. The agent must balance the pole by applying forces (+1 or -1) to the cart. The episode ends if the pole tilts >15 degrees, the cart moves >2.4 units from center, or after 500 steps.",
+    "action_space": {
+      "description": "Force applied to the cart",
+      "type": "Discrete",
+      "n": 2,
+      "metadata": {
+        "0": "Push cart to the left",
+        "1": "Push cart to the right"
+      }
+    },
+    "observation_space": {
+      "description": "Continuous state of the cart-pole system",
+      "type": "Box",
+      "shape": [4],
+      "low": [-4.8, "inf", -0.42, "inf"],
+      "high": [4.8, "inf", 0.42, "inf"],
+      "metadata": {
+        "0": "Cart position (x)",
+        "1": "Cart velocity (ẋ)",
+        "2": "Pole angle (θ)",
+        "3": "Pole angular velocity (θ̇)"
+      }
+    },
+    "rewards": {
+      "per_step": 1.0,
+      "termination_conditions": {
+        "pole_angle_exceeded": 0.0,
+        "cart_position_exceeded": 0.0
+      }
+    },
+    "episode": {
+      "start": "Random initial state (near center)",
+      "end": "Episode ends when termination conditions are met or after 500 steps."
+    },
+    "args": {
+      "render_mode": {
+        "type": "str",
+        "possible_values": ["human", "rgb_array"],
+        "default": null,
+        "description": "Rendering mode"
+      }
+    }
   }
 ]

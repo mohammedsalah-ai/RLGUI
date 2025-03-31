@@ -5,10 +5,10 @@ from PySide6.QtCore import (
     QAbstractListModel,
     QFile,
     QModelIndex,
-    QModelRoleData,
     QPersistentModelIndex,
     Qt,
 )
+from PySide6.QtGui import QIcon
 
 
 class EnvListModel(QAbstractListModel):
@@ -23,11 +23,33 @@ class EnvListModel(QAbstractListModel):
     def data(
         self,
         index: QModelIndex,
-        role: QModelRoleData,
-    ) -> None | str:
-        if role == Qt.DisplayRole:
-            envName = self.envs[index.row()]["envName"]
-            return envName
+        role: Qt.ItemDataRole,
+    ) -> None | QIcon | str:
+        env = self.envs[index.row()]
+        if role == Qt.ItemDataRole.DisplayRole:
+            return env["display_name"]
+
+        if role == Qt.ItemDataRole.DecorationRole:
+            if (
+                env["action_space"]["type"] == "Discrete"
+                and env["observation_space"]["type"] == "Discrete"
+            ):
+                return QIcon(":/models/models_resources/env_icons/dado.png")
+            elif (
+                env["action_space"]["type"] == "Discrete"
+                and env["observation_space"]["type"] == "Box"
+            ):
+                return QIcon(":/models/models_resources/env_icons/dabo.png")
+            elif (
+                env["action_space"]["type"] == "Box"
+                and env["observation_space"]["type"] == "Discrete"
+            ):
+                return QIcon(":/models/models_resources/env_icons/bado.png")
+            elif (
+                env["action_space"]["type"] == "Box"
+                and env["observation_space"]["type"] == "Box"
+            ):
+                return QIcon(":/models/models_resources/env_icons/babo.png")
 
     def rowCount(
         self,
@@ -41,7 +63,6 @@ class EnvListModel(QAbstractListModel):
     def loadEnvsData(self) -> list:
         envsFile = QFile(self.envsResourcePath)
         if not envsFile.open(QFile.ReadOnly):
-            print("I Don't Know :)")
             return []
 
         data = envsFile.readAll()

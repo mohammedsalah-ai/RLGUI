@@ -42,6 +42,71 @@ class Ui_EnvDialog(object):
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.envSelectionListView = QListView(EnvDialog)
         self.envSelectionListView.setObjectName("envSelectionListView")
+        self.envSelectionListView.setStyleSheet(
+            "QListView {\n"
+            "    background-color: #ffffff;\n"
+            "    border: 1px solid #e0e0e0;\n"
+            "    border-radius: 8px;\n"
+            "    padding: 0;\n"
+            "    font-size: 14px;\n"
+            "    color: #555555;\n"
+            "    outline: 0;\n"
+            "    alternate-background-color: #ffffff; /* Disable alternate colors */\n"
+            "}\n"
+            "\n"
+            "QListView::item {\n"
+            "    background-color: #ffffff;\n"
+            "    border: none;\n"
+            "    border-bottom: 1px solid #e8e8e8; /* Gray separator between items */\n"
+            "    padding: 12px 15px;\n"
+            "    margin: 0;\n"
+            "    height: 30px;\n"
+            "}\n"
+            "\n"
+            "QListView::item:hover {\n"
+            "    background-color: #f8f8f8;\n"
+            "    color: #333333;\n"
+            "}\n"
+            "\n"
+            "QListView::item:selected {\n"
+            "    background-color: #f0f0f0;\n"
+            "    color: #222222;\n"
+            "    border-bottom: 1px solid #e0e0e0;\n"
+            "}\n"
+            "\n"
+            "QListView::item:selected:active {\n"
+            "    background-color: #e8e8e8;\n"
+            "}\n"
+            "\n"
+            "/* Remove the dotted focus rectangle */\n"
+            "QListView::item:focus {\n"
+            "    outline: none;\n"
+            "}\n"
+            "\n"
+            "/* Custom scrollbar to match the style */\n"
+            "QScrollBar:vertical {\n"
+            ""
+            "    border: none;\n"
+            "    background: #ffffff;\n"
+            "    width: 10px;\n"
+            "    margin: 0;\n"
+            "}\n"
+            "\n"
+            "QScrollBar::handle:vertical {\n"
+            "    background: #d0d0d0;\n"
+            "    min-height: 30px;\n"
+            "    border-radius: 5px;\n"
+            "}\n"
+            "\n"
+            "QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {\n"
+            "    height: 0;\n"
+            "    background: none;\n"
+            "}\n"
+            "\n"
+            "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+            "    background: none;\n"
+            "}"
+        )
 
         self.horizontalLayout.addWidget(self.envSelectionListView)
 
@@ -50,13 +115,13 @@ class Ui_EnvDialog(object):
         self.envDescriptionScrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 700, 454))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 656, 454))
         self.envDescriptionScrollArea.setWidget(self.scrollAreaWidgetContents)
 
         self.horizontalLayout.addWidget(self.envDescriptionScrollArea)
 
         self.horizontalLayout.setStretch(0, 1)
-        self.horizontalLayout.setStretch(1, 4)
+        self.horizontalLayout.setStretch(1, 3)
 
         self.gridLayout.addLayout(self.horizontalLayout, 0, 0, 1, 1)
 
