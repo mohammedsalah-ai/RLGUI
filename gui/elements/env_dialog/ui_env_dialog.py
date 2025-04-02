@@ -16,6 +16,7 @@ from PySide6.QtCore import (
     Qt,
 )
 from PySide6.QtWidgets import (
+    QAbstractScrollArea,
     QDialogButtonBox,
     QGridLayout,
     QHBoxLayout,
@@ -29,8 +30,8 @@ class Ui_EnvDialog(object):
     def setupUi(self, EnvDialog):
         if not EnvDialog.objectName():
             EnvDialog.setObjectName("EnvDialog")
-        EnvDialog.resize(968, 585)
-        EnvDialog.setMinimumSize(QSize(968, 585))
+        EnvDialog.resize(1280, 680)
+        EnvDialog.setMinimumSize(QSize(1280, 680))
         EnvDialog.setStyleSheet("QDialog {\n	background-color: #FFFFFF;\n}")
         self.gridLayout = QGridLayout(EnvDialog)
         self.gridLayout.setObjectName("gridLayout")
@@ -112,10 +113,19 @@ class Ui_EnvDialog(object):
 
         self.envDescriptionScrollArea = QScrollArea(EnvDialog)
         self.envDescriptionScrollArea.setObjectName("envDescriptionScrollArea")
+        self.envDescriptionScrollArea.setVerticalScrollBarPolicy(
+            Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.envDescriptionScrollArea.setHorizontalScrollBarPolicy(
+            Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.envDescriptionScrollArea.setSizeAdjustPolicy(
+            QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents
+        )
         self.envDescriptionScrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 656, 454))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 890, 549))
         self.envDescriptionScrollArea.setWidget(self.scrollAreaWidgetContents)
 
         self.horizontalLayout.addWidget(self.envDescriptionScrollArea)

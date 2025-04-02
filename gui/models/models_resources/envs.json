@@ -139,22 +139,13 @@
     },
     "rewards": {
       "per_step": 1.0,
-      "termination_conditions": {
-        "pole_angle_exceeded": 0.0,
-        "cart_position_exceeded": 0.0
-      }
+      "pole_angle_exceeded": 0.0,
+      "cart_position_exceeded": 0.0
     },
     "episode": {
       "start": "Random initial state (near center)",
       "end": "Episode ends when termination conditions are met or after 500 steps."
     },
-    "args": {
-      "render_mode": {
-        "type": "str",
-        "possible_values": ["human", "rgb_array"],
-        "default": null,
-        "description": "Rendering mode"
-      }
-    }
+    "args": {}
   }
 ]
