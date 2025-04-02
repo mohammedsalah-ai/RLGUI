@@ -1,4 +1,5 @@
 from PySide6.QtCore import Qt
+from PySide6.QtGui import QMovie
 from PySide6.QtWidgets import (
     QFrame,
     QGridLayout,
@@ -23,6 +24,9 @@ class EnvWidget(QWidget):
         self.layout.setContentsMargins(40, 40, 40, 40)
 
         self._create_header()
+
+        if "preview" in self.env_data:
+            self._create_preview()
         self._create_section("Description", self._create_description())
         self._create_section("Action Space", self._create_action_space())
         self._create_section("Observation Space", self._create_observation_space())
@@ -47,6 +51,17 @@ class EnvWidget(QWidget):
         header_layout.addWidget(env_id)
         header_layout.addWidget(category)
         self.layout.addWidget(header)
+
+    def _create_preview(self) -> None:
+        gif = QMovie(self.env_data["preview"])
+        gif.setCacheMode(QMovie.CacheAll)
+        gif.start()
+
+        label = QLabel()
+        label.setMovie(gif)
+        label.setObjectName("preview")
+        self.layout.addWidget(label)
+        self.layout.setAlignment(label, Qt.AlignCenter)
 
     def _create_section(self, title: str, content: QVBoxLayout) -> None:
         section = QFrame()

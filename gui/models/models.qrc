@@ -5,5 +5,9 @@
       <file>models_resources/env_icons/bado.png</file>
       <file>models_resources/env_icons/dabo.png</file>
       <file>models_resources/env_icons/dado.png</file>
+      <file>models_resources/env_preview_gifs/frozen_lake.gif</file>
+      <file>models_resources/env_preview_gifs/cliff_walking.gif</file>
+      <file>models_resources/env_preview_gifs/taxi.gif</file>
+      <file>models_resources/env_preview_gifs/cart_pole.gif</file>
     </qresource>
 </RCC>

@@ -115,8 +115,8 @@
    <widget class="QPushButton" name="envBtn">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>280</y>
+      <x>30</x>
+      <y>30</y>
       <width>116</width>
       <height>39</height>
      </rect>

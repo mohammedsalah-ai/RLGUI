@@ -52,7 +52,7 @@ class Ui_MainWindow(object):
         self.centralwidget.setAutoFillBackground(True)
         self.envBtn = QPushButton(self.centralwidget)
         self.envBtn.setObjectName("envBtn")
-        self.envBtn.setGeometry(QRect(350, 280, 116, 39))
+        self.envBtn.setGeometry(QRect(30, 30, 116, 39))
         self.envBtn.setStyleSheet(
             "QPushButton {\n"
             "    min-height: 23px;\n"

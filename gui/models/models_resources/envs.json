@@ -3,6 +3,7 @@
     "name": "FrozenLake-v1",
     "display_name": "Frozen Lake",
     "category": "Toy Text",
+    "preview": ":/models/models_resources/env_preview_gifs/frozen_lake.gif",
     "description": "The game starts with the player at location [0,0] of the frozen lake grid world with the goal located at far extent of the world e.g. [3,3] for the 4x4 environment.\nHoles in the ice are distributed in set locations when using a pre-determined map or in random locations when a random map is generated.\nThe player makes moves until they reach the goal or fall in a hole.\nThe lake is slippery (unless disabled) so the player may move perpendicular to the intended direction sometimes (see is_slippery).\nRandomly generated worlds will always have a path to the goal.",
     "action_space": {
       "description": "The agent's movement",
@@ -47,6 +48,7 @@
     "name": "CliffWalking-v0",
     "display_name": "Cliff Walking",
     "category": "Toy Text",
+    "preview": ":/models/models_resources/env_preview_gifs/cliff_walking.gif",
     "description": "The game starts with the player at location [3,0] of the grid world with the goal located at [3,11].\nThe player must navigate from the start to the goal while avoiding falling off the cliff which runs along [3,1..10].\nFalling off the cliff results in a penalty and sends the player back to the start.\nThe player makes moves until they reach the goal or exceed the step limit.",
     "action_space": {
       "description": "The agent's movement",
@@ -79,6 +81,7 @@
     "name": "Taxi-v3",
     "display_name": "Taxi",
     "category": "Toy Text",
+    "preview": ":/models/models_resources/env_preview_gifs/taxi.gif",
     "description": "The Taxi problem involves navigating a grid world to pick up a passenger at one location and drop them off at another.\nThe agent (taxi) must learn to move efficiently while avoiding illegal actions (e.g., moving through walls).\nThe environment includes walls that restrict movement, and the taxi must pick up and drop off passengers in the correct order.",
     "action_space": {
       "description": "The agent's possible actions",
@@ -114,6 +117,7 @@
     "name": "CartPole-v1",
     "display_name": "Cart Pole",
     "category": "Classic Control",
+    "preview": ":/models/models_resources/env_preview_gifs/cart_pole.gif",
     "description": "A pole is attached to a cart moving along a frictionless track. The agent must balance the pole by applying forces (+1 or -1) to the cart. The episode ends if the pole tilts >15 degrees, the cart moves >2.4 units from center, or after 500 steps.",
     "action_space": {
       "description": "Force applied to the cart",
