@@ -6,9 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1120</width>
+    <height>580</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1120</width>
+    <height>580</height>
+   </size>
   </property>
   <property name="palette">
    <palette>
@@ -112,17 +124,59 @@
    <property name="autoFillBackground">
     <bool>true</bool>
    </property>
-   <widget class="QPushButton" name="envBtn">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>30</y>
-      <width>116</width>
-      <height>39</height>
-     </rect>
+   <layout class="QGridLayout" name="gridLayout" columnstretch="5,10,4">
+    <property name="leftMargin">
+     <number>32</number>
     </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton {
+    <property name="topMargin">
+     <number>32</number>
+    </property>
+    <property name="rightMargin">
+     <number>32</number>
+    </property>
+    <property name="bottomMargin">
+     <number>32</number>
+    </property>
+    <property name="horizontalSpacing">
+     <number>24</number>
+    </property>
+    <property name="verticalSpacing">
+     <number>6</number>
+    </property>
+    <item row="0" column="2">
+     <layout class="QVBoxLayout" name="algoLayout" stretch="0,1,0">
+      <property name="spacing">
+       <number>12</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="algoOptsLabel">
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;algorithm options&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QWidget" name="algoArgsWidget" native="true">
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <widget class="QLabel" name="algoPreviewLabel">
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+	color: rgba(0, 0, 0, 128);
+}</string>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Argument options&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;allows you to customize&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;how an algortihm works&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="trainBtn">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
     min-height: 23px;
     min-width: 100px;
     padding: 6px 6px;
@@ -146,23 +200,113 @@ QDialogButtonBox QPushButton:pressed {
     background-color: #555555;
     border: 2px solid transparent;
 }</string>
-    </property>
-    <property name="text">
-     <string>environements</string>
-    </property>
-   </widget>
+        </property>
+        <property name="text">
+         <string>train an algorithm</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="0" column="0">
+     <layout class="QVBoxLayout" name="envLayout" stretch="0,0,1">
+      <property name="spacing">
+       <number>12</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="envOptsLabel">
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;environment options&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="envBtn">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    min-height: 23px;
+    min-width: 100px;
+    padding: 6px 6px;
+    border-radius: 19px;
+    qproperty-icon: none;
+    font-size: 12px;
+}
+
+QPushButton {
+    background-color: #888888;
+    color: #EEEEEE;
+    border: 2px solid transparent;
+}
+
+QPushButton:hover {
+    background-color: #9E9E9E;
+    border: 2px solid transparent;
+}
+
+QDialogButtonBox QPushButton:pressed {
+    background-color: #555555;
+    border: 2px solid transparent;
+}</string>
+        </property>
+        <property name="text">
+         <string>select an environment</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QWidget" name="envArgsWidget" native="true">
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QLabel" name="envArgsPreviewLabel">
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+	color: rgba(0,0, 0, 128);
+	margin-bottom: 96px;
+}</string>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;select an environment&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;to view its arguments&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="0" column="1">
+     <widget class="QScrollArea" name="algoScrollArea">
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>529</width>
+         <height>514</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QLabel" name="algoScrollAreaPreviewLabel">
+          <property name="styleSheet">
+           <string notr="true">QLabel {
+	color: rgba(0, 0, 0, 128);
+}</string>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;No Reinforcement Learning Algorithm&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt; has been selected&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>800</width>
-     <height>19</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>

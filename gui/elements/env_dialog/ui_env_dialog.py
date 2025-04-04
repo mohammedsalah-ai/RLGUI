@@ -20,8 +20,10 @@ from PySide6.QtWidgets import (
     QDialogButtonBox,
     QGridLayout,
     QHBoxLayout,
+    QLabel,
     QListView,
     QScrollArea,
+    QVBoxLayout,
     QWidget,
 )
 
@@ -126,6 +128,14 @@ class Ui_EnvDialog(object):
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 890, 549))
+        self.verticalLayout = QVBoxLayout(self.scrollAreaWidgetContents)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.label = QLabel(self.scrollAreaWidgetContents)
+        self.label.setObjectName("label")
+        self.label.setStyleSheet("QLabel {\n	color: rgba(0, 0, 0, 128);\n}")
+
+        self.verticalLayout.addWidget(self.label)
+
         self.envDescriptionScrollArea.setWidget(self.scrollAreaWidgetContents)
 
         self.horizontalLayout.addWidget(self.envDescriptionScrollArea)
@@ -202,6 +212,13 @@ class Ui_EnvDialog(object):
     def retranslateUi(self, EnvDialog):
         EnvDialog.setWindowTitle(
             QCoreApplication.translate("EnvDialog", "Environments", None)
+        )
+        self.label.setText(
+            QCoreApplication.translate(
+                "EnvDialog",
+                '<html><head/><body><p align="center"><span style=" font-size:16pt;">No Enviroment has been selected</span></p></body></html>',
+                None,
+            )
         )
 
     # retranslateUi
